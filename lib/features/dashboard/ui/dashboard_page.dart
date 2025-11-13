@@ -1,3 +1,5 @@
+import 'package:dapp_expense_tracker/features/deposit/deposit.dart';
+import 'package:dapp_expense_tracker/features/withdraw/withdraw.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -41,18 +43,22 @@ class _DashboardPageState extends State<DashboardPage> {
             Row(
               children: [
                 Expanded(
-                    child: Container(
-                  height: 50,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: const Color.fromARGB(255, 170, 255, 214)),
-                  child: Center(
-                    child: Text(
-                      "+ DEPOSIT",
-                      style: TextStyle(
-                          color: Colors.green,
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold),
+                    child: InkWell(
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => DepositPage())),
+                  child: Container(
+                    height: 50,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: const Color.fromARGB(255, 170, 255, 214)),
+                    child: Center(
+                      child: Text(
+                        "+ DEPOSIT",
+                        style: TextStyle(
+                            color: Colors.green,
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                 )),
@@ -60,21 +66,25 @@ class _DashboardPageState extends State<DashboardPage> {
                   width: 8,
                 ),
                 Expanded(
-                    child: Container(
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: const Color.fromARGB(255, 255, 152, 152),
-                  ),
-                  child: Center(
-                      child: Text(
-                    "- WITHDRAW",
-                    style: TextStyle(
-                      color: Colors.red,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
+                    child: InkWell(
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => WithdrawalPage())),
+                  child: Container(
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: const Color.fromARGB(255, 255, 152, 152),
                     ),
-                  )),
+                    child: Center(
+                        child: Text(
+                      "- WITHDRAW",
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )),
+                  ),
                 ))
               ],
             ),
