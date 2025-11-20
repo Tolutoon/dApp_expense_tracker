@@ -1,3 +1,4 @@
+import 'package:dapp_expense_tracker/features/dashboard/bloc/dashboard_bloc_bloc.dart';
 import 'package:dapp_expense_tracker/features/deposit/deposit.dart';
 import 'package:dapp_expense_tracker/features/withdraw/withdraw.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,15 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
+  final DashboardBlocBloc dashboardBloc = DashboardBlocBloc();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    dashboardBloc.add(DashboardInitialFetchEvent());
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,8 +77,10 @@ class _DashboardPageState extends State<DashboardPage> {
                 ),
                 Expanded(
                     child: InkWell(
-                  onTap: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => WithdrawalPage())),
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => WithdrawalPage())),
                   child: Container(
                     height: 50,
                     decoration: BoxDecoration(

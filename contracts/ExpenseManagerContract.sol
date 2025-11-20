@@ -1,5 +1,6 @@
+// contracts/ExpenseManagerContract.sol
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.30;
+pragma solidity >=0.4.21 <0.9.0;
 
 contract ExpenseManagerContract {
 
